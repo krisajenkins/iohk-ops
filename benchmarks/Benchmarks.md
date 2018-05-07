@@ -77,7 +77,6 @@ can be collected with the following command:
   --argstr txsPerThread  500      \
   --argstr conc          1        \
   --argstr delay         250      \
-  --argstr sendMode send-random   \
   --argstr cooldown      10       \
   --argstr addGenerators 6        \
   --argstr edgeNodes     0        \

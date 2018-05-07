@@ -176,9 +176,9 @@ in {
       # how many minutes between nodes restarting
       nodeMinute = mod (cfg.nodeIndex * 4) 60;
     in {
-      script = ''
-        echo /run/current-system/sw/bin/systemctl restart cardano-node
-      '';
+      script = (if (config.deployment.arguments.configurationKey == "bench")
+        then '' echo System not restarted because benchmark is running.''
+        else '' /run/current-system/sw/bin/systemctl restart cardano-node'');
       # Reboot cardano-node every 36h (except Mon->Tue gap which is 24h)
       #startAt = [
       #  "Tue,Fri,Mon 13:${toString nodeMinute}"
